@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://api.thesis.lat/sitemap.txt
