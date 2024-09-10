@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css");
+
+:root {
+    --color-1: #edb612;
+    --color-2: #b01c25;
+    --color-3: #222;
+    --color-4: #dedede;
+    --color-5: #777;
+
+    --font-family: "Montserrat", sans-serif;
+}
+
+body {
+    background-color: var(--color-3);
+    color: var(--color-4);
+    text-align: center;
+    font-family: var(--font-family);
+}
+
+a {
+    color: var(--color-1);
+}
+
+header {
+    display: flex;
+    background-color: var(--color-2);
+    justify-content: center;
+    padding-inline: 0.5em;
+}
+
+header div {
+    padding-inline: 1em;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav a {
+    padding: 0.5em;
+    margin: 0.1em;
+    background-color: var(--color-2);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+p {
+    padding-block: 0.5em;
+}
+
+input,
+button {
+    padding: 0.5em 1em;
+    background-color: var(--color-4);
+    color: var(--color-3);
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+    border-radius: 3px;
+}
+
+article#view {
+    max-width: 769px;
+    margin-inline: auto;
+}
+
+pre a {
+    font-variant: small-caps;
+}
+
+/* MUNDUS */
+.mundus svg {
+    width: 100%;
+}
