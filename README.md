@@ -1,3 +1,3 @@
 # Thesis
 
-## Scientia potentia est!
+Scientia potentia est!
