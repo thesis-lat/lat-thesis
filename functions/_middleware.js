@@ -8,14 +8,17 @@ export async function onRequest(context) {
   if (pathname.slice(0, 2) == "/@") {
     const repo = pathname.slice(2);
     const data = await d1Template(context, repo);
-    data.verificatur = data.verificatur.toLocaleString("es-ES");
-    const html = mustache(base, {
-      title: data.repo.toUpperCase(),
-      content: mustache(template, data),
-    });
-    await d1Verificatur(context, repo);
-    return new Response(html, headerHtml);
-  } else return context.next();
+    if (data) {
+      data.verificatur = data.verificatur.toLocaleString("es-ES");
+      const html = mustache(base, {
+        title: data.repo.toUpperCase(),
+        content: mustache(template, data),
+      });
+      await d1Verificatur(context, repo);
+      return new Response(html, headerHtml);
+    }
+  }
+  return context.next();
 }
 
 async function d1Template(context, repo) {
