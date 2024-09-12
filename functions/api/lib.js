@@ -10,3 +10,22 @@ export function mustache(html, params, defaultValue) {
     (a, b) => params[b.trim()] ?? defaultValue ?? a,
   );
 }
+
+export function formatTemplates(templates) {
+  return templates
+    .map(
+      (e) => `<div class="update">
+    ${e.verificatur == 0 ? "\u274C" : "\u2705"} ${e.annus} ${e.lingua}<br>
+    ${e.patriae_nomen}<br>
+    <a href="https://github.com/${e.repo}" target="_blank">
+      <i class="fa-brands fa-github-alt"></i> ${e.repo}
+    </a><br>
+    <small>${e.descriptio}</small><br>
+    <small>
+      <a href="//${e.universitas}" target="_blank">Universitas</a> /
+      <a href="//${e.universitas + e.facultas}" target="_blank">Facultas</a> /
+      <a href="//${e.repositorium}" target="_blank">Repositorium</a></small>
+  </div>`,
+    )
+    .join("");
+}
