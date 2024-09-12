@@ -92,7 +92,6 @@ ON CONFLICT (repo) DO UPDATE SET
   facultas = excluded.facultas,
   repositorium = excluded.repositorium,
   descriptio = excluded.descriptio,
-  verificatur = 0,
   updated_at = current_timestamp
 `,
   ).bind(

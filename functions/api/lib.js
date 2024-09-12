@@ -15,16 +15,13 @@ export function formatTemplates(templates) {
   return templates
     .map(
       (e) => `<div class="update">
-    ${e.verificatur == 0 ? "\u274C" : "\u2705"} ${e.annus} ${e.lingua}<br>
-    ${e.patriae_nomen}<br>
-    <i class="fa-brands fa-github-alt"></i>
-    <a href="https://github.com/${e.repo}" target="_blank">${e.repo}</a><br>
-    <small>${e.descriptio}</small><br>
-    <small>
-      <a href="//${e.universitas}" target="_blank">Universitas</a> /
-      <a href="//${e.universitas + e.facultas}" target="_blank">Facultas</a> /
-      <a href="//${e.repositorium}" target="_blank">Repositorium</a></small>
-  </div>`,
+  ${e.verificatur == 0 ? "\u274C" : "\u2705"}
+  <a href="/@${e.repo}" target="_blank">${e.repo}</a><br>
+  ${e.patriae_nomen}<br>
+  <i class="fa-solid fa-language"></i> ${e.lingua}
+  <i class="fa-solid fa-calendar"></i> ${e.annus}<br>
+  <i class="fa-solid fa-comment"></i> ${e.descriptio}
+</div>`,
     )
     .join("");
 }

@@ -1,0 +1,37 @@
+<section>
+    <article>
+        <h1>
+            <i class="fa-brands fa-github-alt"></i>
+            <a
+                href="https://github.com/{{ repo }}"
+                target="_blank"
+                style="font-variant: small-caps; font-size: xx-large"
+                >{{ repo }}</a
+            >
+        </h1>
+        <h2>{{ patriae_nomen }}</h2>
+        <h3>
+            <i class="fa-solid fa-language"></i> {{ lingua }}
+            <i class="fa-solid fa-calendar"></i> {{ annus }}
+        </h3>
+        <iframe
+            src="https://docs.google.com/viewer?url=https://github.com/{{ repo }}/releases/download/latest/doc.pdf&embedded=true"
+            frameborder="0"
+            width="100%"
+            height="480px"
+            style="border-radius: 3px"
+        ></iframe>
+        <p>
+            <a href="//{{ universitas }}" target="_blank">Universitas</a> /
+            <a href="//{{ universitas }}{{ facultas }}" target="_blank"
+                >Facultas</a
+            >
+            /
+            <a href="//{{ repositorium }}" target="_blank">Repositorium</a>
+        </p>
+        <p>
+            {{ descriptio }}<br /><br />
+            <small>Visitor numerus<br />{{ verificatur }}</small>
+        </p>
+    </article>
+</section>

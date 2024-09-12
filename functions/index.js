@@ -18,8 +18,8 @@ async function d1LastTemplates(context) {
   const stmt = context.env.D1.prepare(
     `SELECT *
 FROM templates
-WHERE verificatur = 1
-ORDER BY updated_at DESC
+WHERE verificatur > 0
+ORDER BY annus DESC
 LIMIT 10`,
   );
   const result = await stmt.all();
