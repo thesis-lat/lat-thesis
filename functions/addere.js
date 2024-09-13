@@ -11,7 +11,7 @@ const templateDefault = {
   lingua: "Latin",
   flag: "🇻🇦",
   universitas: "www.thesis.lat",
-  facultas: "/facultas",
+  facultas: "thesis.lat/facultas",
   repositorium: "repositorium.thesis.lat/",
   descriptio: "Informatiō thesis",
   annus: 2024,
@@ -106,6 +106,5 @@ ON CONFLICT (repo) DO UPDATE SET
     template.descriptio,
   );
   const result = await stmt.run();
-  console.log(result);
   return result.meta.changes > 0;
 }
