@@ -4,12 +4,14 @@ import template from "html/template.html";
 import { headerHtml, mustache } from "@/api/lib";
 
 export async function onRequest(context) {
+  const domain = context.env.DOMAIN;
   const { pathname } = new URL(context.request.url);
   if (pathname.slice(0, 2) == "/@") {
     const repo = pathname.slice(2);
     const data = await d1Template(context, repo);
     if (data) {
       data.verificatur = data.verificatur.toLocaleString("es-ES");
+      data.domain = domain;
       const html = mustache(base, {
         title: data.repo.toUpperCase(),
         content: mustache(template, data),
@@ -17,6 +19,17 @@ export async function onRequest(context) {
       await d1Verificatur(context, repo);
       return new Response(html, headerHtml);
     }
+  } else if (pathname.slice(0, 4) == "/sh/") {
+    const repo = pathname.slice(4);
+    return new Response(
+      `git clone https://github.com/${repo}.git /tmp/template
+rm -rf /tmp/template/.git
+cp -r /tmp/template/* ./
+rm -rf /tmp/template`,
+      {
+        headers: { "Content-Type": "text/x-shellscript" },
+      },
+    );
   }
   return context.next();
 }

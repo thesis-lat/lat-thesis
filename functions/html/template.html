@@ -14,6 +14,18 @@
             <i class="fa-solid fa-language"></i> {{ lingua }}
             <i class="fa-solid fa-calendar"></i> {{ annus }}
         </h3>
+        <p>
+            <input
+                id="copy"
+                type="text"
+                value="curl -Ls {{ domain }}sh/{{ repo }} | sh -"
+            />
+            <button
+                onclick="navigator.clipboard.writeText(document.querySelector('#copy').value).then(_=>this.style.color='var(--color-1)')"
+            >
+                <i class="fa-solid fa-copy"></i>
+            </button>
+        </p>
         <iframe
             src="https://docs.google.com/viewer?url=https://github.com/{{ repo }}/releases/download/latest/doc.pdf&embedded=true"
             frameborder="0"
