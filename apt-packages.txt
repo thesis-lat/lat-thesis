@@ -1,0 +1,4 @@
+pandoc
+pandoc-plantuml-filter
+texlive-latex-base
+texlive-latex-extra

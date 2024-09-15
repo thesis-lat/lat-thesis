@@ -1,2 +1,12 @@
 run:
 	bun run wrangler pages dev static
+
+pkgs:
+	sudo apt install -y $(shell cat ./apt-packages.txt)
+
+doc:
+	@pandoc \
+	--filter pandoc-plantuml \
+	-o doc.pdf \
+	./docs/meta.yml \
+	$(shell cat ./docs/docs.txt)

@@ -1,0 +1,13 @@
+---
+title: Thesis
+author: Irving Montalvo
+date: 2024
+papersize: a4
+fontsize: 12pt
+geomtry: margin=2.5cm
+toc: true
+toc-title: "Index"
+header-includes: |
+  \renewcommand{\figurename}{Image}
+---
+
