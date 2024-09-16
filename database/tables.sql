@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS templates(
-    repo UNIQUE NOT NULL,
+    repo TEXT UNIQUE NOT NULL,
     annus INTEGER NOT NULL,
     patria TEXT NOT NULL,
     patriae_nomen TEXT NOT NULL,

@@ -17,6 +17,7 @@ const templateDefault = {
   annus: 2024,
   publicae: "\u2705", // \u274C
 };
+
 export async function onRequestGet(context) {
   return content(templateDefault);
 }
@@ -27,8 +28,10 @@ export async function onRequestPost(context) {
   if (url == templateDefault.url) {
     return content(templateDefault);
   }
-  let template = await makeTemplate(url);
-  if (template && (await d1Update(context, template))) {
+  const template = await makeTemplate(url);
+  if (template.universitas == 'www.thesis.lat') {
+    await d1Remove(context, template.repo);
+  } else  if (await d1Update(context, template)) {
     template.publicae = "\u2705";
   }
   return content(template);
@@ -59,7 +62,7 @@ async function makeTemplate(url) {
       template.repo +
       "/main/thesis.json",
     );
-    if (!info) return d1Remove(context, template.repo);
+    if (!info) return template;
     Object.keys(info).forEach((k) => (template[k] = info[k] ?? ""));
     const patria = await getJson(
       "https://restcountries.com/v3.1/alpha/" + info.patria,
@@ -114,5 +117,5 @@ ON CONFLICT (repo) DO UPDATE SET
     template.descriptio,
   );
   const result = await stmt.run();
-  return result.meta.changes > 0;
+  return result.meta.last_row_id > 0;
 }
