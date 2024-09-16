@@ -56,9 +56,10 @@ async function makeTemplate(url) {
     template.repo = url.slice(19);
     const info = await getJson(
       "https://raw.githubusercontent.com/" +
-        template.repo +
-        "/main/thesis.json",
+      template.repo +
+      "/main/thesis.json",
     );
+    if (!info) return d1Remove(context, template.repo);
     Object.keys(info).forEach((k) => (template[k] = info[k] ?? ""));
     const patria = await getJson(
       "https://restcountries.com/v3.1/alpha/" + info.patria,
@@ -70,6 +71,13 @@ async function makeTemplate(url) {
     }
   }
   return template;
+}
+
+async function d1Remove(ctx, repo) {
+  const stmt = ctx.env.D1.prepare(
+    `DELETE FROM templates WHERE repo = ?1`
+  ).bind(repo);
+  await stmt.run();
 }
 
 async function d1Update(ctx, template) {

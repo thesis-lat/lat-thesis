@@ -1,5 +1,5 @@
 run:
-	bun run wrangler pages dev static
+	npx wrangler pages dev static
 
 pkgs:
 	sudo apt install -y $(shell cat ./apt-packages.txt)

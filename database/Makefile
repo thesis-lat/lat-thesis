@@ -6,11 +6,11 @@ test:
 
 # execute-file ctx=--local path=
 execute-file:
-	bun run wrangler d1 execute $(NAME) $(ctx) --file $(path)
+	npx wrangler d1 execute $(NAME) $(ctx) --file $(path)
 
 # execute ctx=--remote sql="SELECT 1"
 execute:
-	bun run wrangler d1 execute $(NAME) $(ctx) --command "$(sql)"
+	npx wrangler d1 execute $(NAME) $(ctx) --command "$(sql)"
 
 local:
 	@make execute-file ctx=--local path=./tables.sql
