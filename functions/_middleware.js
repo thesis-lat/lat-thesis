@@ -27,7 +27,10 @@ rm -rf /tmp/template/.git
 cp -r /tmp/template/* ./
 rm -rf /tmp/template`,
       {
-        headers: { "Content-Type": "text/x-shellscript" },
+        headers: {
+          "Content-Type": "text/x-shellscript", 
+          "Access-Control-Allow-Origin": "*"
+        },
       },
     );
   }
