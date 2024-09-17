@@ -23,7 +23,7 @@ export async function onRequest(context) {
     const repo = pathname.slice(4);
     return new Response(
       `git clone https://github.com/${repo}.git /tmp/template
-rm -rf /tmp/template/.git
+rm -rf /tmp/template/.git/
 cp -r /tmp/template/* ./
 rm -rf /tmp/template`,
       {
