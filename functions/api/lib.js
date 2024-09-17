@@ -16,11 +16,9 @@ export function formatTemplates(templates) {
     .map(
       (e) => `<div class="update">
   ${e.verificatur == 0 ? "\u274C" : "\u2705"}
+  ${e.annus} ${e.lingua} ${e.patriae_nomen}<br>
   <a href="/@${e.repo}">${e.repo}</a><br>
-  ${e.patriae_nomen}<br>
-  <i class="fa-solid fa-language"></i> ${e.lingua}
-  <i class="fa-solid fa-calendar"></i> ${e.annus}<br>
-  <i class="fa-solid fa-comment"></i> ${e.descriptio}
+  ${e.descriptio}
 </div>`,
     )
     .join("");

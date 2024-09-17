@@ -4,7 +4,8 @@
 
 ```plantuml
 @startuml
-class templates {
+
+class Templates {
     repo: Text
     annus: Integer
     patria: Text
@@ -17,5 +18,21 @@ class templates {
     verificatur: Integer = 0
     updated_at: Text = current_timestamp
 }
+note left of Templates::repo
+    GitHub Repository
+end note
+
+note right of Templates::annus
+    "YYYY"
+end note
+
+note left of Templates::patria
+    ISO 3166-1 alpha-3
+end note
+
+note right of Templates::lingua
+    ISO 639-3
+end note
+
 @enduml
 ```
