@@ -78,6 +78,7 @@ td {
     padding-bottom: 0.5em;
 }
 .update {
+    vertical-align: top;
     max-width: 30ch;
     display: inline-block;
     margin: 0.5em;
