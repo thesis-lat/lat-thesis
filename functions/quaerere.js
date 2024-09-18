@@ -1,5 +1,5 @@
-import base from "html/base.html";
-import quaerere from "html/quaerere.html";
+import htmlBase from "html/base.html";
+import htmlQuaerere from "html/quaerere.html";
 
 import { headerHtml, mustache, formatTemplates } from "@/api/lib";
 
@@ -10,9 +10,9 @@ export async function onRequestGet(context) {
   let result = formatTemplates(templates);
   const params = {
     title: "Quaerere / Thesis",
-    content: mustache(quaerere, { query, result }),
+    content: mustache(htmlQuaerere, { query, result }),
   };
-  const html = mustache(base, params);
+  const html = mustache(htmlBase, params);
   return new Response(html, headerHtml);
 }
 

@@ -1,5 +1,5 @@
-import base from "html/base.html";
-import addere from "html/addere.html";
+import htmlBase from "html/base.html";
+import htmlAddere from "html/addere.html";
 
 import { headerHtml, mustache } from "@/api/lib";
 
@@ -40,9 +40,9 @@ export async function onRequestPost(context) {
 function content(template) {
   const params = {
     title: "Addere / Thesis",
-    content: mustache(addere, template),
+    content: mustache(htmlAddere, template),
   };
-  const html = mustache(base, params);
+  const html = mustache(htmlBase, params);
   return new Response(html, headerHtml);
 }
 

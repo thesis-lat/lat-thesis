@@ -1,5 +1,5 @@
-import base from "html/base.html";
-import home from "html/home.html";
+import htmlBase from "html/base.html";
+import htmlHome from "html/home.html";
 
 import { headerHtml, mustache, formatTemplates } from "@/api/lib";
 
@@ -8,9 +8,9 @@ export async function onRequestGet(context) {
   const result = formatTemplates(templates);
   const params = {
     title: "Thesis / Scientia potentia est!",
-    content: mustache(home, { result }),
+    content: mustache(htmlHome, { result }),
   };
-  const html = mustache(base, params);
+  const html = mustache(htmlBase, params);
   return new Response(html, headerHtml);
 }
 

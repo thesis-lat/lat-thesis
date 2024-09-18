@@ -15,10 +15,9 @@ export function formatTemplates(templates) {
   return templates
     .map(
       (e) => `<div class="update">
-  ${e.verificatur == 0 ? "\u274C" : "\u2705"}
   ${e.annus} ${e.lingua} ${e.patriae_nomen}<br>
-  <a href="/@${e.repo}">${e.repo}</a><br>
-  ${e.descriptio}
+  ${e.descriptio}<br>
+  <a href="/@${e.repo}">${e.repo}</a>
 </div>`,
     )
     .join("");

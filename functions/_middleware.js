@@ -1,5 +1,5 @@
-import base from "html/base.html";
-import template from "html/template.html";
+import htmlBase from "html/base.html";
+import htmlTemplate from "html/template.html";
 
 import { headerHtml, mustache } from "@/api/lib";
 
@@ -12,9 +12,9 @@ export async function onRequest(context) {
     if (data) {
       data.verificatur = data.verificatur.toLocaleString("es-ES");
       data.domain = domain;
-      const html = mustache(base, {
+      const html = mustache(htmlBase, {
         title: data.repo.toUpperCase(),
-        content: mustache(template, data),
+        content: mustache(htmlTemplate, data),
       });
       await d1Verificatur(context, repo);
       return new Response(html, headerHtml);
