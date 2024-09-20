@@ -24,7 +24,7 @@ export async function onRequest(context) {
     return new Response(
       `git clone https://github.com/${repo}.git /tmp/template
 rm -rf /tmp/template/.git/
-cp -r /tmp/template/* /tmp/template/.github ./
+cp -r /tmp/template/* /tmp/template/.github /tmp/template/.gitignore ./
 rm -rf /tmp/template
 `,
       {
