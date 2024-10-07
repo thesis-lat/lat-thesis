@@ -1,0 +1,73 @@
+@import url(https://unpkg.com/chota@latest);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css);
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap);
+
+:root {
+    --bg-color: #222;
+    --font-color: #dedede;
+    --color-primary: #b01c25;
+    --color-secondary: #edb612;
+
+    --font-family-sans: "Montserrat", sans-serif;
+}
+
+a {
+    color: inherit;
+}
+
+a i {
+    vertical-align: text-bottom;
+}
+
+a span {
+    padding-left: 0.5em;
+}
+
+footer {
+    padding-block: 3em;
+}
+
+footer a {
+    color: inherit !important;
+}
+
+.button.primary {
+    color: var(--color-secondary);
+}
+
+main.container {
+    margin-top: 100px;
+}
+
+.nav a {
+    width: 100%;
+}
+
+.nav .nav-center {
+    gap: 2px;
+}
+
+.thesis-item {
+    margin-block: 1em;
+}
+
+.thesis-item a {
+    font-variant: small-caps;
+}
+
+.text-secondary {
+    color: var(--color-secondary);
+}
+
+/* DESKTOP */
+@media (min-width: 768px) {
+    .brand {
+        display: flex;
+        gap: 5px;
+        justify-content: center;
+    }
+
+    .nav a {
+        width: auto;
+    }
+}

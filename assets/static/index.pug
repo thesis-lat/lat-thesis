@@ -1,0 +1,22 @@
+extends ../base
+
+block head
+    script(src="https://unpkg.com/htmx-ext-client-side-templates@2.0.0/client-side-templates.js") 
+    script(src="https://unpkg.com/mustache@latest")
+
+block content
+    div(hx-ext="client-side-templates")
+        div(
+            hx-post="/api/templates/updates" 
+            hx-trigger="revealed"
+            mustache-array-template="thesis-item"
+        )
+
+block body
+    template#thesis-item
+        | {{#data}}
+        .thesis-item.card
+            div {{ annus }} {{ lingua }} {{ patriae_nomen }}
+            div {{ descriptio }}
+            a.text-secondary(href="/@{{ repo }}") {{ repo }}
+        | {{/data}}

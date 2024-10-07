@@ -1,0 +1,35 @@
+doctype html
+html(lang="lat")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+        block title
+            title Thesis / Scientia potentia est!
+        
+        link(rel="stylesheet", href="/assets/style.css")
+        script(src="https://unpkg.com/htmx.org@2.0.3")
+        block head
+
+    body 
+        include header
+        
+        main.container
+            block content
+
+        footer.text-center.text-grey
+            p
+                a.button.clear(href="https://www.patreon.com/moixllik" target="_blank")
+                    i.fa-brands.fa-patreon
+                    span Patreon
+
+                a.button.clear(href="https://ko-fi.com/moixllik" target="_blank")
+                    i.fa-solid.fa-mug-saucer
+                    span Ko-fi 
+
+                a.button.clear(href="https://github.com/thesis-lat" target="_blank")
+                    i.fa-brands.fa-github
+                    span GitHub
+            p &copy; 2024
+
+        block body

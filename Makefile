@@ -1,13 +1,15 @@
+PUGS_FILES:=$(shell find assets/**/ -name "*.pug")
+PUGS:= $(patsubst assets/%.pug,%,$(PUGS_FILES))
+
 run:
-	npx wrangler pages dev static
+	@npx wrangler pages dev static 
 
-pkgs:
-	sudo apt update -y
-	sudo apt install -y $(shell cat ./apt-packages.txt)
+npm:
+	npm install -g pug-cli
 
-doc:
-	@pandoc \
-	--filter pandoc-plantuml \
-	-o ./static/Thesis.pdf \
-	./docs/meta.yml \
-	$(shell cat ./docs/docs.txt)
+.PHONY: build
+build: $(PUGS)
+
+%:
+	@mkdir -p $(dir $@)
+	@pug -b ./assets/ ./assets/$@.pug --out $(dir $@)
