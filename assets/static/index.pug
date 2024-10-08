@@ -16,7 +16,8 @@ block body
     template#thesis-item
         | {{#data}}
         .thesis-item.card
-            h3 {{ annus }} {{ lingua }} {{ patriae_nomen }}
+            h3 {{ patriae_nomen }}
+            div {{ annus }} {{ lingua }} 
             div {{ descriptio }}
             a.text-secondary(href="/@{{ repo }}") {{ repo }}
         | {{/data}}

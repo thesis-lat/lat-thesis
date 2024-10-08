@@ -3,11 +3,15 @@ extends ../base
 block title
     title Quaerere / Thesis
 
+block head
+    script(src="https://unpkg.com/htmx-ext-client-side-templates@2.0.0/client-side-templates.js") 
+    script(src="https://unpkg.com/mustache@latest")
+
 block content
     h2 Quaerere
 
     div(hx-ext="client-side-templates")
-        form.row(hx-post="/api/quaerere")
+        form.row(hx-post="/api/quaerere" hx-target="#view" mustache-array-template="thesis-item")
             input.col-5(type="search" name="q" placeholder="Quaerere" required)
             button.col-2
                 i.fa-solid.fa-filter
@@ -15,3 +19,11 @@ block content
     #view.container
 
 block body
+    template#thesis-item
+        | {{#data}}
+        .thesis-item.card
+            h3 {{ patriae_nomen }}
+            div {{ annus }} {{ lingua }} 
+            div {{ descriptio }}
+            a.text-secondary(href="/@{{ repo }}") {{ repo }}
+        | {{/data}}

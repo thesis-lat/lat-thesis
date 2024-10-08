@@ -1,7 +1,8 @@
 extends ../base
 
 block title
-    title {{ repo }} / Thesis
+    title {{ title }} / Thesis
+    meta(name="description", content="{{ descriptio }}")
 
 block content
     h1 
@@ -12,14 +13,15 @@ block content
     h2 {{ patriae_nomen }}
     h3 
         i.fa-solid.fa-language 
-        span {{ lingua }}
+        span &nbsp;{{ lingua }} 
         i.fa-solid.fa-calendar 
-        span {{ annus }}
+        span &nbsp;{{ annus }} 
 
-    p 
-        input#copy(type="text" value="curl -Ls {{ domain }}sh/{{ repo }} | sh -")
-        button(onclick="onCopy()")
+    p.row 
+        input#copy.col-6(type="text" value="curl -Ls {{ domain }}sh/{{ repo }} | sh -")
+        button.col-3(onclick="onCopy(event)")
             i.fa-solid.fa-copy
+            span Copy
 
     iframe(
         src="https://docs.google.com/viewer?url=https://github.com/{{ repo }}/releases/download/latest/doc.pdf&embedded=true"
@@ -39,12 +41,14 @@ block content
 
     p {{ descriptio }}
     p
-        small Visitor numerus: {{ verificatur }}
+        small 
+            b Visitor numerus: 
+            i {{ verificatur }}
 
 block body
     script.
-        function onCopy() {
+        function onCopy(event) {
             navigator.clipboard.writeText(
                 document.querySelector('#copy').value
-            ).then(_=>this.style.color='var(--color-1)')
+            ).then(_=>event.target.style.color='var(--color-primary)')
         }

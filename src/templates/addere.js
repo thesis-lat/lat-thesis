@@ -75,15 +75,15 @@ async function d1Remove(ctx, repo) {
 async function d1Update(ctx, template) {
     const stmt = ctx.env.D1.prepare(
         `INSERT INTO templates(
-      repo, annus, patria, patriae_nomen, lingua,
-      universitas, facultas, repositorium,
-      descriptio
-  ) VALUES (
+    repo, annus, patria, patriae_nomen, lingua,
+    universitas, facultas, repositorium,
+    descriptio
+) VALUES (
     ?1, ?2, ?3, ?4, ?5,
     ?6, ?7, ?8,
     ?9
-  )
-  ON CONFLICT (repo) DO UPDATE SET
+)
+ON CONFLICT (repo) DO UPDATE SET
     annus = excluded.annus,
     patria = excluded.patria,
     patriae_nomen = excluded.patriae_nomen,
@@ -92,8 +92,7 @@ async function d1Update(ctx, template) {
     facultas = excluded.facultas,
     repositorium = excluded.repositorium,
     descriptio = excluded.descriptio,
-    updated_at = current_timestamp
-  `,
+    updated_at = current_timestamp`
     ).bind(
         template.repo.toLowerCase(),
         template.annus,

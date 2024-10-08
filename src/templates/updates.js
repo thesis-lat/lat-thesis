@@ -18,7 +18,7 @@ async function d1Data(context) {
   FROM templates
   WHERE verificatur > 0
   ORDER BY annus DESC
-  LIMIT 10`
+  LIMIT 5`
     )
     // return testData
     return (await stmt.all()).results

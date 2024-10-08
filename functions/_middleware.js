@@ -1,13 +1,17 @@
 import * as templates from '@/templates'
+import getSitemap from '@/sitemap.txt.js'
+import getBash from '@/bash'
 
 const API = {
     'GET': {
-        '/@.*': onDefault,
+        '/sitemap.txt': getSitemap,
+        '/@.*': templates.getInfo,
+        '/sh/.*': getBash,
     },
     'POST': {
         '/api/templates/updates': templates.postUpdates,
         '/api/addere': templates.postAddere,
-        '/api/quaerere': onDefault,
+        '/api/quaerere': templates.postQuaerere,
     }
 }
 
