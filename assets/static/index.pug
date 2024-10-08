@@ -6,7 +6,7 @@ block head
 
 block content
     div(hx-ext="client-side-templates")
-        div(
+        div.container(
             hx-post="/api/templates/updates" 
             hx-trigger="revealed"
             mustache-array-template="thesis-item"

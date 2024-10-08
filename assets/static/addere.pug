@@ -3,5 +3,49 @@ extends ../base
 block title
     title Addere / Thesis
 
+block head
+    script(src="https://unpkg.com/htmx-ext-client-side-templates@2.0.0/client-side-templates.js") 
+    script(src="https://unpkg.com/mustache@latest")
+
 block content
-    h3 Addere
+    h2 Addere
+    div(hx-ext="client-side-templates")
+        form.row(hx-post="/api/addere" hx-target="#view" mustache-template="info")
+            input.col-5(type="url" name="url" value="https://github.com/thesis-lat/template" placeholder="Addere" required)
+            button.col-2
+                i.fa-solid.fa-circle-plus
+                span Add
+    #view.container
+
+block body
+    template#info
+        div
+            h3
+                a(href="/@{{ repo }}" target="_blank")
+                    i.fa-brands.fa-github-alt
+                    span
+                        b {{ repo }}
+            h4
+                a(href="//{{ universitas }}" target="_blank")
+                    b Universitas
+                span / 
+                a(href="//{{ facultas }}" target="_blank") 
+                    b Facultas
+                span / 
+                a(href="//{{ repositorium }}" target="_blank") 
+                    b Repositorium 
+
+            dl
+                dt Publicae: {{ publicae }}
+            
+                dt Annus: {{ annus }}
+            
+                dt Patria: 
+                dd {{ flag }} {{ patriaeNomen }}
+            
+                dt Lingua: 
+                dd {{ lingua }}
+            
+                dt Descriptio: 
+                dd {{ descriptio }}
+

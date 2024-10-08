@@ -4,4 +4,14 @@ block title
     title Quaerere / Thesis
 
 block content
-    h3 Quaerere
+    h2 Quaerere
+
+    div(hx-ext="client-side-templates")
+        form.row(hx-post="/api/quaerere")
+            input.col-5(type="search" name="q" placeholder="Quaerere" required)
+            button.col-2
+                i.fa-solid.fa-filter
+                span Filter
+    #view.container
+
+block body

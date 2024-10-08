@@ -1,8 +1,13 @@
 import * as templates from '@/templates'
 
 const API = {
+    'GET': {
+        '/@.*': onDefault,
+    },
     'POST': {
-        '/api/templates/updates': templates.postUpdates
+        '/api/templates/updates': templates.postUpdates,
+        '/api/addere': templates.postAddere,
+        '/api/quaerere': onDefault,
     }
 }
 

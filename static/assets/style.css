@@ -16,11 +16,11 @@ a {
     color: inherit;
 }
 
-a i {
+button i, a i {
     vertical-align: text-bottom;
 }
 
-a span {
+button span, a span {
     padding-left: 0.5em;
 }
 
