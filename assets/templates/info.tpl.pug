@@ -2,7 +2,14 @@ extends ../base
 
 block title
     title {{ title }} / Thesis
+
+block head
     meta(name="description", content="{{ descriptio }}")
+    script(
+        async
+        crossorigin="anonymous"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1552191203398756"
+    )
 
 block content
     h1 
