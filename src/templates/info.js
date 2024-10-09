@@ -30,7 +30,9 @@ export default async function onRequestGet(context) {
 
 async function d1Data(context, repo) {
     const stmt = context.env.D1.prepare(
-        `SELECT repo, patriae_nomen, lingua, annus, universitas, facultas, repositorium, descriptio, verificatur
+        `SELECT 
+    repo, patriae_nomen, lingua, annus, universitas, facultas, 
+    repositorium, descriptio, verificatur
 FROM templates
 WHERE repo = ?1`,
     ).bind(repo)

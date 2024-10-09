@@ -1,3 +1,5 @@
+import { encodeText, headerJson } from "@/lib";
+
 const testData = {
     url: 'https://github.com/thesis-lat/template',
     repo: 'thesis-lat/template',
@@ -15,15 +17,13 @@ const testData = {
 
 export default async function onRequestPost(context) {
     const formData = await context.request.formData();
-    const url = formData.get('url');
+    const url = formData.get('url')
     let data = { ...testData }
     if (url != testData.url) {
         data = await d1Data(context, url)
         if (!data) return new Response('Error')
     }
-    return new Response(JSON.stringify(data), {
-        headers: { 'Content-Type': 'application/json; charset=UTF-8' }
-    })
+    return new Response(JSON.stringify(data), headerJson)
 }
 
 async function d1Data(context, url) {
@@ -39,8 +39,8 @@ async function d1Data(context, url) {
 }
 
 async function getJson(url) {
-    let res = await fetch(url);
-    if (res.status == 200) return await res.json();
+    let res = await fetch(url)
+    if (res.status == 200) return await res.json()
 }
 
 async function makeTemplate(url) {
@@ -53,7 +53,7 @@ async function makeTemplate(url) {
         '/main/thesis.json',
     )
     if (!info) return;
-    Object.keys(info).forEach((k) => (template[k] = info[k] ?? ''))
+    Object.keys(info).forEach((k) => (template[k] = encodeText(info[k])))
     const patria = await getJson(
         'https://restcountries.com/v3.1/alpha/' + info.patria,
     )

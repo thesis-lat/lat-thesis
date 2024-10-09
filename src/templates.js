@@ -1,11 +1,11 @@
-import postUpdates from '@/templates/updates'
-import postAddere from '@/templates/addere'
-import postQuaerere from '@/templates/quaerere'
 import getInfo from '@/templates/info'
+import postAddere from '@/templates/addere'
+import postUpdates from '@/templates/updates'
+import postQuaerere from '@/templates/quaerere'
 
 export {
-    postUpdates,
-    postAddere,
-    postQuaerere,
     getInfo,
+    postAddere,
+    postUpdates,
+    postQuaerere,
 }

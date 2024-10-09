@@ -6,7 +6,8 @@ export default async function onRequestGet(context) {
 }
 
 async function d1Data(context) {
-    const stmt = context.env.D1.prepare(`SELECT repo
+    const stmt = context.env.D1.prepare(
+        `SELECT repo
 FROM templates
 WHERE verificatur > 0
 ORDER BY verificatur ASC
