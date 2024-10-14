@@ -5,4 +5,11 @@ block title
 
 block content
     h2 Tutorial
+
+    video.col-10(controls)
+        source(src="/assets/tutorial/video.webm" type="video/webm")
+        source(src="/assets/tutorial/video.mp4" type="video/mp4")
+        track(src="/assets/tutorial/en.vtt" kind="subtitles" srclang="en" label="English" default)
+        track(src="/assets/tutorial/es.vtt" kind="subtitles" srclang="es" label="Spanish")
+        track(src="/assets/tutorial/pt.vtt" kind="subtitles" srclang="pt" label="Portuguese")
     
